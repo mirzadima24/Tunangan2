@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Tunangan Mirza & Helma</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Georgia, serif;
+    background: linear-gradient(to bottom,#111,#2c0d0d);
+    color:white;
+    text-align:center;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.hero img{
+    width:280px;
+    border-radius:20px;
+    margin-bottom:20px;
+    box-shadow:0 0 20px rgba(255,255,255,0.2);
+}
+
+h1{
+    font-size:55px;
+    margin-bottom:10px;
+}
+
+h2{
+    font-size:22px;
+    margin-bottom:20px;
+}
+
+.nama{
+    font-size:50px;
+    margin:15px 0;
+    color:#fff;
+}
+
+.countdown{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.box{
+    background:black;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.section{
+    padding:50px 20px;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    padding:20px;
+    border-radius:15px;
+    max-width:500px;
+    margin:auto;
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop controls>
+    <source src="pernikahan-kita.mp3" type="audio/mpeg">
+</audio>
+
+<section class="hero">
+
+    <h2>Undangan Tunangan</h2>
+
+    <img src="foto.jpg" alt="Mirza & Helma">
+
+    <div class="nama">
+        Mirza Zuraidima<br>
+        &<br>
+        Helma Yanti
+    </div>
+
+    <h2>Sabtu, 25 Juli 2026</h2>
+
+    <div class="countdown">
+        <div class="box" id="hari">00</div>
+        <div class="box" id="jam">00</div>
+        <div class="box" id="menit">00</div>
+        <div class="box" id="detik">00</div>
+    </div>
+
+</section>
+
+<section class="section">
+    <div class="card">
+        <h2>Kepada:</h2>
+        <p>Yth. Tamu Undangan</p>
+        <br>
+        <p>
+        Dengan penuh rasa syukur, kami mengundang Bapak/Ibu/Saudara/i
+        untuk hadir dalam acara Tunangan kami.
+        </p>
+    </div>
+</section>
+
+<script>
+const target = new Date("July 25, 2026 09:00:00").getTime();
+
+setInterval(() => {
+    const now = new Date().getTime();
+    const jarak = target - now;
+
+    const hari = Math.floor(jarak/(1000*60*60*24));
+    const jam = Math.floor((jarak%(1000*60*60*24))/(1000*60*60));
+    const menit = Math.floor((jarak%(1000*60*60))/(1000*60));
+    const detik = Math.floor((jarak%(1000*60))/1000);
+
+    document.getElementById("hari").innerHTML = hari;
+    document.getElementById("jam").innerHTML = jam;
+    document.getElementById("menit").innerHTML = menit;
+    document.getElementById("detik").innerHTML = detik;
+},1000);
+</script>
+
+</body>
+</html>
